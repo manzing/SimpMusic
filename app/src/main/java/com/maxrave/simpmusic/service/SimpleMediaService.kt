@@ -165,5 +165,8 @@ class SimpleMediaService :
                     PendingIntent.FLAG_IMMUTABLE,
                 ),
             ).setBitmapLoader(coilBitmapLoader)
+             // Temporary fix for bug in ExoPlayer media3 https://github.com/androidx/media/issues/2192
+            // Bug cause refresh ui in android auto when media is playing
+             .setPeriodicPositionUpdateEnabled(false)
             .build()
 }
